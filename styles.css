@@ -16,3 +16,7 @@ form {
 button {
   margin-top: 10px;
 }
+
+.loading {
+  text-align: center;
+}
