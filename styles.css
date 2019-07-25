@@ -1,0 +1,17 @@
+.title {
+  text-align: center;
+}
+
+.food-form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-top: 10px;
+}
