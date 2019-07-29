@@ -15,13 +15,15 @@ form.addEventListener("submit", e => {
     content
   };
 
+  console.log(post);
+
   form.style.display = "none"; // * now after submit the form will not display
   loadingElement.style.display = ""; //* loading wheel will now display briefly after submit
 
   fetch(API_URL, {
     method: "POST",
     body: JSON.stringify(post),
-    header: {
+    headers: {
       "content-type": "application/json"
     }
   });
