@@ -30,5 +30,8 @@ form.addEventListener("submit", e => {
     .then(res => res.json())
     .then(createdPost => {
       console.log(createdPost);
+      form.reset();
+      form.style.display = "";
+      loadingElement.style.display = "none";
     });
 });
