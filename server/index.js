@@ -10,7 +10,7 @@ const db = monk("localhost/foodster");
 //* pass in how does it connect to the DB "localhost",
 // *  then what DB to connect to "foodster"
 
-const foodsterPosts = db.get("posts"); // * 'posts' is now a collection in DB
+const foodsterPosts = db.get("posts"); // * 'foodsterPosts' is now a collection in DB
 
 app.use(cors()); // * installed cors middleware
 app.use(bodyParser.json());
