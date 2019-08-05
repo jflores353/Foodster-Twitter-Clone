@@ -8,7 +8,7 @@ const app = express();
 //* connect to DB
 const db = monk("localhost/foodster");
 //* pass in how does it connect to the DB "localhost",
-// *  then what DB to connect to "foodster"
+// *  then what DB to connect to "/foodster"
 
 const foodsterPosts = db.get("posts"); // * 'foodsterPosts' is now a collection in DB
 
@@ -51,7 +51,8 @@ app.post("/posts", (req, res) => {
       content: req.body.content.toString(),
       created: new Date()
     };
-    // console.log(post);
+    console.log(post);
+    // * insert post into our collection
     foodsterPosts.insert(post).then(createdPost => {
       res.json(createdPost);
     });
