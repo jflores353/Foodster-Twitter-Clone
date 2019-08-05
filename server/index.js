@@ -2,8 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const monk = require("monk");
+const Filter = require("bad-words");
 
 const app = express();
+const filter = new Filter();
 
 //* connect to DB
 const db = monk("localhost/foodster");
@@ -47,8 +49,8 @@ app.post("/posts", (req, res) => {
   if (isValidPost(req.body)) {
     // * insert into DB
     const post = {
-      name: req.body.name.toString(),
-      content: req.body.content.toString(),
+      name: filter.clean(req.body.name.toString()),
+      content: filter.clean(req.body.content.toString()),
       created: new Date()
     };
     console.log(post);
