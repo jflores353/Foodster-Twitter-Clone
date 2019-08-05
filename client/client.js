@@ -1,8 +1,11 @@
 const form = document.querySelector("form");
 const loadingElement = document.querySelector(".loading");
+const postsElement = document.querySelector(".posts");
 const API_URL = "http://localhost:5000/posts";
 
 loadingElement.style.display = "none";
+
+listAllPosts();
 
 form.addEventListener("submit", e => {
   e.preventDefault();
@@ -35,3 +38,29 @@ form.addEventListener("submit", e => {
       loadingElement.style.display = "none";
     });
 });
+
+function listAllPosts() {
+  fetch(API_URL)
+    .then(res => res.json())
+    .then(posts => {
+      console.log(posts);
+      posts.forEach(post => {
+        const div = document.createElement("div");
+
+        const header = document.createElement("h3");
+        header.textContent = post.name;
+
+        const contents = document.createElement("p");
+        contents.textContent = post.content;
+
+        const date = document.createElement("small");
+        date.textContent = new Date(post.created);
+
+        div.appendChild(header);
+        div.appendChild(contents);
+        div.appendChild(date);
+
+        postsElement.appendChild(div);
+      });
+    });
+}
