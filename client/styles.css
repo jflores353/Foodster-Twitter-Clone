@@ -20,3 +20,8 @@ button {
 .loading {
   text-align: center;
 }
+
+.posts {
+  margin: auto;
+  width: 80%;
+}
