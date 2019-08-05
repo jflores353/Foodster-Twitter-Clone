@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const monk = require("monk");
 const Filter = require("bad-words");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
 const filter = new Filter();
@@ -44,6 +45,13 @@ const isValidPost = post => {
     post.content.toString().trim() !== ""
   );
 };
+
+app.use(
+  rateLimit({
+    windowsMs: 30 * 1000, //*  every 30 seconds you are allowed to make a Post
+    max: 1
+  })
+);
 
 app.post("/posts", (req, res) => {
   if (isValidPost(req.body)) {
