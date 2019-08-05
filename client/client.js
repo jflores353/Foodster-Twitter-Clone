@@ -35,15 +35,18 @@ form.addEventListener("submit", e => {
       console.log(createdPost);
       form.reset();
       form.style.display = "";
+      listAllPosts();
       loadingElement.style.display = "none";
     });
 });
 
 function listAllPosts() {
+  postsElement.innerHTML = "";
   fetch(API_URL)
     .then(res => res.json())
     .then(posts => {
       console.log(posts);
+      posts.reverse();
       posts.forEach(post => {
         const div = document.createElement("div");
 
