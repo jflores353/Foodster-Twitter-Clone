@@ -1,7 +1,5 @@
 # Foodster-twitter-clone
 
-# Foodster-twitter-clone
-
 ##Front-end
 *Create client folder
 *Setup index.html
