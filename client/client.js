@@ -51,6 +51,7 @@ function listAllPosts() {
       posts.reverse();
       posts.forEach(post => {
         const div = document.createElement("div");
+        div.style = "color: white";
 
         const header = document.createElement("h3");
         header.textContent = post.name;

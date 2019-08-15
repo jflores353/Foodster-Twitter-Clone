@@ -9,7 +9,8 @@ const app = express();
 const filter = new Filter();
 
 //* connect to DB
-const db = monk("localhost/foodster");
+const db = monk(process.env.MONGO_URI || "localhost/foodster");
+// const db = monk("localhost/foodster");
 //* pass in how does it connect to the DB "localhost",
 // *  then what DB to connect to "/foodster"
 
