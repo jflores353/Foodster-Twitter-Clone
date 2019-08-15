@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "Twitter clone",
   "main": "index.js",
+  "homepage": "https://jflores353.github.io/Foodster-twitter-clone",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gabe Flores",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^2.1.1"
+  }
 }
